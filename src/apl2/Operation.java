@@ -20,11 +20,9 @@ public class Operation {
 	 */
 
 	public static DLinkedList map(final LinkedListOriginal original) {
-
 		DLinkedList resposta = new DLinkedList();
 
-		//pega o no inicial
-    	NodeOriginal atual = original.getHead(); 
+		NodeOriginal atual = original.getHead();
 
 		while (atual != null) {
 			int id = atual.getId();
@@ -36,13 +34,16 @@ public class Operation {
 			float nota;
 
 			if ((inteiro >= 0 && inteiro <= 10) && (decimo >= 0 && decimo <= 10)) {
-				nota = inteiro + decimo;
+				nota = (float) (inteiro +  0.1 * decimo);
 			} else {
 				nota = 99.9f;
 			}
 
-			Node novoNo = new Node(novoid, nome, nota, null, null);
-			resposta.append(novoNo);
+			// Cria o novo nó apenas com os dados necessários
+			Node novo = new Node(novoid, nome, nota);
+
+			// Adiciona o nó na lista duplamente encadeada
+			resposta.append(novo);
 
 			atual = atual.getNext();
 		}
@@ -56,7 +57,7 @@ public class Operation {
 	 * <p>A operação {@code filterRemoveNonGraded()} deve filtrar os nós que não possuem notas válidas (caso de "ausência de nota")
 	 * e retornar uma nova lista do tipo {@code DLinkedList} contendo apenas os nós com notas válidas.</p>
 	 * 
-	 * @param data Base de dados mapeada para o formato {@code DLinkedList} (via operação {@code map()}).
+	 * @param data Base de dados mapeada para o formato {@code DLinkedList} (via operação {@code map()}). 
 	 * @return Uma nova {@code DLinkedList} que contém a coleção de dados ({@code data}) filtrada com nós que possuem apenas pessoas com notas válidas.
 	 */
 	public static DLinkedList filterRemoveNonGraded(final DLinkedList data) {
@@ -70,7 +71,7 @@ public class Operation {
 	 * <p>A operação {@code filterRemoveGraded()} deve filtrar os nós que possuem notas válidas e retornar uma nova lista do
 	 * tipo {@code DLinkedList} contendo apenas os nós com notas inválidas (caso de "ausência de nota").</p>
 	 * 
-	 * @param data Base de dados mapeada para o formato {@code DLinkedList} (via operação {@code map()}).
+	 * @param data Base de dados mapeada para o formato {@code DLinkedList} (via operação {@code map()}). 
 	 * @return Uma nova {@code DLinkedList} que contém a coleção de dados ({@code data}) filtrada com nós que possuem apenas pessoas com notas inválidas.
 	 */
 	public static DLinkedList filterRemoveGraded(final DLinkedList data) {
@@ -115,7 +116,7 @@ public class Operation {
 	 * {@code String}, sendo que cada dado de uma pessoa é separado por ponto-e-vírgula (;) e cada pessoa é separada por uma
 	 * quebra de linha.</p>
 	 * 
-	 * @param data Base de dados mapeada para o formato {@code DLinkedList} (via operação {@code map()}).
+	 * @param data Base de dados mapeada para o formato {@code DLinkedList} (via operação {@code map()}). 
 	 * @return {@code String} com a coleção de dados separada por ponto-e-vírgula (dados de cada pessoa) e quebras de linha (cada pessoa).
 	 */
 	public static String mapToString(final DLinkedList data) {

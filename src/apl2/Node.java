@@ -20,7 +20,7 @@ public class Node {
 
     // Construtor padrão
     public Node() {
-        this("", "", 0.0f, null, null);  
+        this("", "", 0.0f, null, null);                            
     }
 
     // Construtor com parâmetros
@@ -30,6 +30,14 @@ public class Node {
         this.nota = nota;
         this.next = next;
         this.left = left;
+    }
+
+    public Node(String id, String nome, float nota) {
+        this.id = id;
+        this.nome = nome;
+        this.nota = nota;
+        this.next = null;
+        this.left = null;
     }
 
     // Getters e Setters
