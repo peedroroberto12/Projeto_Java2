@@ -61,8 +61,20 @@ public class Operation {
 	 * @return Uma nova {@code DLinkedList} que contém a coleção de dados ({@code data}) filtrada com nós que possuem apenas pessoas com notas válidas.
 	 */
 	public static DLinkedList filterRemoveNonGraded(final DLinkedList data) {
-		// TODO: Implementar o método e remover o lançamento de exceção abaixo.
-		throw new UnsupportedOperationException("Método ainda não implementado.");
+		DLinkedList resposta = new DLinkedList();
+
+		Node atual = data.getHead();
+		while (atual != null) {
+
+			if (atual.getNota() != 99.9f) {
+				Node novo = new Node(atual.getId(), atual.getNome(), atual.getNota());
+				resposta.append(novo);
+			}
+			atual = atual.getNext();
+		}
+		
+		return resposta;
+
 	}
 
 	/**
@@ -106,7 +118,16 @@ public class Operation {
 	 */
 	public static float reduce(final DLinkedList data) {
 		// TODO: Implementar o método e remover o lançamento de exceção abaixo.
-		throw new UnsupportedOperationException("Método ainda não implementado.");
+        float soma = 0;
+		Node atual = data.getHead();
+		while (atual != null) {
+			soma += atual.getNota();
+
+			atual = atual.getNext();
+		}
+		
+		return soma / data.count();		
+	
 	}
 
 	/**
