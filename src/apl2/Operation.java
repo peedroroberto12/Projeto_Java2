@@ -87,8 +87,19 @@ public class Operation {
 	 * @return Uma nova {@code DLinkedList} que contém a coleção de dados ({@code data}) filtrada com nós que possuem apenas pessoas com notas inválidas.
 	 */
 	public static DLinkedList filterRemoveGraded(final DLinkedList data) {
-		// TODO: Implementar o método e remover o lançamento de exceção abaixo.
-		throw new UnsupportedOperationException("Método ainda não implementado.");
+		
+		DLinkedList resposta = new DLinkedList();
+		Node atual = data.getHead();
+		while (atual != null) {
+
+			if (atual.getNota() == 99.9f) {
+				Node novo = new Node(atual.getId(), atual.getNome(), atual.getNota());
+				resposta.append(novo);
+			}
+			atual = atual.getNext();
+		}
+		
+		return resposta;
 	}
 
 	/**
@@ -103,8 +114,19 @@ public class Operation {
 	 * @return Uma nova {@code DLinkedList} que contém a coleção de dados ({@code data}) filtrada somente com pessoas com notas maiores do que {@code average}.
 	 */
 	public static DLinkedList filterRemoveBelowAverage(final DLinkedList data, float average) {
-		// TODO: Implementar o método e remover o lançamento de exceção abaixo.
-		throw new UnsupportedOperationException("Método ainda não implementado.");
+		DLinkedList resposta = new DLinkedList();
+
+		Node atual = data.getHead();
+
+		while (atual != null) {
+
+			if (atual.getNota() > average) {
+				Node novo = new Node(atual.getId(), atual.getNome(), atual.getNota());
+				resposta.append(novo);
+			}
+			atual = atual.getNext();
+		}
+		return resposta;
 	}
 	
 	/**
@@ -116,6 +138,8 @@ public class Operation {
 	 * @param data Base de dados filtrada com a operação {@code filterRemoveNonGraded()}.
 	 * @return Média das notas ({@code float}) contidas na coleção de dados ({@code data}).
 	 */
+
+	 
 	public static float reduce(final DLinkedList data) {
 		// TODO: Implementar o método e remover o lançamento de exceção abaixo.
         float soma = 0;
