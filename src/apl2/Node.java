@@ -84,8 +84,7 @@ public class Node {
     // Sobrescrevendo o método toString
     @Override
     public String toString() {
-        return "[dados: (" + id + "; " + nome + "; " + nota + ") | next: " + 
-                (next != null ? next.getId() : "null") + " | left: " + 
-                (left != null ? left.getId() : "null") + "]";
+        return (left != null ? left.getId() : "null") + " <- " + id + "; " + nome + "; " + nota + " -> " + (next != null ? next.getId() : "null");
+            
     }
 }

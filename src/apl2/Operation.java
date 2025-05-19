@@ -20,36 +20,33 @@ public class Operation {
 	 */
 
 	public static DLinkedList map(final LinkedListOriginal original) {
-		DLinkedList resposta = new DLinkedList();
+        DLinkedList resposta = new DLinkedList();
 
-		NodeOriginal atual = original.getHead();
+        NodeOriginal atual = original.getHead();
 
-		while (atual != null) {
-			int id = atual.getId();
-			String nome = atual.getNome();
-			int inteiro = atual.getInteiro();
-			int decimo = atual.getDecimo();
+        while (atual != null) {
+            int id = atual.getId();
+            String nome = atual.getNome();
+            int inteiro = atual.getInteiro();
+            int decimo = atual.getDecimo();
 
-			String novoid = "23.S1-" + id;
-			float nota;
+            String novoid = "23.S1-" + id;
+            float nota;
 
-			if ((inteiro >= 0 && inteiro <= 10) && (decimo >= 0 && decimo <= 10)) {
-				nota = (float) (inteiro +  0.1 * decimo);
-			} else {
-				nota = 99.9f;
-			}
+            if ((inteiro >= 0 && inteiro <= 10) && (decimo >= 0 && decimo <= 10)) {
+                nota = (float) (inteiro +  0.1 * decimo);
+            } else {
+                nota = 99.9f;
+            }
 
-			// Cria o novo nó apenas com os dados necessários
-			Node novo = new Node(novoid, nome, nota);
+            // Adiciona o nó na lista duplamente encadeada passando os dados, não o Node
+            resposta.append(novoid, nome, nota);
 
-			// Adiciona o nó na lista duplamente encadeada
-			resposta.append(novo);
+            atual = atual.getNext();
+        }
 
-			atual = atual.getNext();
-		}
-
-		return resposta;
-	}
+        return resposta;
+    }
 
 	/**
 	 * <p>Recebe como parâmetro uma lista duplamente encadeada do tipo {@code DLinkedList}, sendo que os nós da lista estão
@@ -61,21 +58,21 @@ public class Operation {
 	 * @return Uma nova {@code DLinkedList} que contém a coleção de dados ({@code data}) filtrada com nós que possuem apenas pessoas com notas válidas.
 	 */
 	public static DLinkedList filterRemoveNonGraded(final DLinkedList data) {
-		DLinkedList resposta = new DLinkedList();
+        DLinkedList resposta = new DLinkedList();
 
-		Node atual = data.getHead();
-		while (atual != null) {
+        Node atual = data.getHead();
+        while (atual != null) {
 
-			if (atual.getNota() != 99.9f) {
-				Node novo = new Node(atual.getId(), atual.getNome(), atual.getNota());
-				resposta.append(novo);
-			}
-			atual = atual.getNext();
-		}
-		
-		return resposta;
+            if (atual.getNota() != 99.9f) {
+                // Adiciona passando os dados, não o Node
+                resposta.append(atual.getId(), atual.getNome(), atual.getNota());
+            }
+            atual = atual.getNext();
+        }
+        
+        return resposta;
 
-	}
+    }
 
 	/**
 	 * <p>Recebe como parâmetro uma lista duplamente encadeada do tipo {@code DLinkedList}, sendo que os nós da lista estão
@@ -87,20 +84,20 @@ public class Operation {
 	 * @return Uma nova {@code DLinkedList} que contém a coleção de dados ({@code data}) filtrada com nós que possuem apenas pessoas com notas inválidas.
 	 */
 	public static DLinkedList filterRemoveGraded(final DLinkedList data) {
-		
-		DLinkedList resposta = new DLinkedList();
-		Node atual = data.getHead();
-		while (atual != null) {
+        
+        DLinkedList resposta = new DLinkedList();
+        Node atual = data.getHead();
+        while (atual != null) {
 
-			if (atual.getNota() == 99.9f) {
-				Node novo = new Node(atual.getId(), atual.getNome(), atual.getNota());
-				resposta.append(novo);
-			}
-			atual = atual.getNext();
-		}
-		
-		return resposta;
-	}
+            if (atual.getNota() == 99.9f) {
+                // Adiciona passando os dados, não o Node
+                resposta.append(atual.getId(), atual.getNome(), atual.getNota());
+            }
+            atual = atual.getNext();
+        }
+        
+        return resposta;
+    }
 
 	/**
 	 * <p>Recebe como parâmetro uma lista duplamente encadeada do tipo {@code DLinkedList}, sendo que os nós da lista estão
@@ -114,20 +111,20 @@ public class Operation {
 	 * @return Uma nova {@code DLinkedList} que contém a coleção de dados ({@code data}) filtrada somente com pessoas com notas maiores do que {@code average}.
 	 */
 	public static DLinkedList filterRemoveBelowAverage(final DLinkedList data, float average) {
-		DLinkedList resposta = new DLinkedList();
+        DLinkedList resposta = new DLinkedList();
 
-		Node atual = data.getHead();
+        Node atual = data.getHead();
 
-		while (atual != null) {
+        while (atual != null) {
 
-			if (atual.getNota() > average) {
-				Node novo = new Node(atual.getId(), atual.getNome(), atual.getNota());
-				resposta.append(novo);
-			}
-			atual = atual.getNext();
-		}
-		return resposta;
-	}
+            if (atual.getNota() > average) {
+                // Adiciona passando os dados, não o Node
+                resposta.append(atual.getId(), atual.getNome(), atual.getNota());
+            }
+            atual = atual.getNext();
+        }
+        return resposta;
+    }
 	
 	/**
 	 * <p>Recebe como parâmetro uma lista duplamente encadeada do tipo {@code DLinkedList}, sendo que os nós da lista estão
@@ -165,8 +162,16 @@ public class Operation {
 	 * @return {@code String} com a coleção de dados separada por ponto-e-vírgula (dados de cada pessoa) e quebras de linha (cada pessoa).
 	 */
 	public static String mapToString(final DLinkedList data) {
-		// TODO: Implementar o método e remover o lançamento de exceção abaixo.
-		throw new UnsupportedOperationException("Método ainda não implementado.");
-	}
+        String resultado = "";
+        Node atual = data.getHead();
+        while (atual != null) {
+            resultado += atual.getId() + ";" + atual.getNome() + ";" + String.format("%.1f", atual.getNota());
+            atual = atual.getNext();
+            if (atual != null) {
+                resultado += "\n";
+            }
+        }
+        return resultado;
+    }
 
 }

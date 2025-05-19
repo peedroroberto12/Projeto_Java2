@@ -98,10 +98,10 @@ public class MainApl2 {
         DLinkedList testList = new DLinkedList();
 
         // TODO: Inserir os nós de teste conforme solicitado
-        testList.insert(new Node("ABC", "John Doe", 4.7f));
-        testList.append(new Node("XYZ", "Jane Doe", 9.9f));
-        testList.insert(new Node("321", "Test", 2.3f));
-        testList.append(new Node("Nothing", "Yada yada yada", 99.9f));
+        testList.insert("ABC", "John Doe", 4.7f);
+        testList.append("XYZ", "Jane Doe", 9.9f);
+        testList.insert("321", "Test", 2.3f);
+        testList.append("Nothing", "Yada yada yada", 99.9f);
 
         System.out.println(">>>>>>>>>> testList >>>>>>>>>>\n" + testList + "\n<<<<<<<<<< testList <<<<<<<<<<\n");
         System.out.println("testList.getHead(): " + testList.getHead());
@@ -119,14 +119,14 @@ public class MainApl2 {
         System.out.println("testList.getTail(): " + testList.getTail() + '\n');
 
         // TODO: Inserções adicionais
-        testList.insert(new Node("qwerty", "QWERTY", 1.2f));
-        testList.append(new Node("WASD", "wasd", 3.4f));
-        testList.insert(new Node("ijkl", "IJKL", 5.6f));
-        testList.append(new Node("1234", "Um Dois Tres Quatro", 7.8f));
+        testList.insert("qwerty", "QWERTY", 1.2f);
+        testList.append("WASD", "wasd", 3.4f);
+        testList.insert("ijkl", "IJKL", 5.6f);
+        testList.append("1234", "Um Dois Tres Quatro", 7.8f);
 
         System.out.println(">>>>>>>>>> testList >>>>>>>>>>\n" + testList + "\n<<<<<<<<<< testList <<<<<<<<<<\n");
 
         testList.clear();
         System.out.println(">>>>>>>>>> testList.clear() >>>>>>>>>>\n" + testList + "\n<<<<<<<<<< testList.clear() <<<<<<<<<<\n");
-    }
+    }
 }

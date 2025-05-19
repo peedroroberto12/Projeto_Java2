@@ -84,7 +84,7 @@ public class DLinkedList {
 		} else { 
 			tail = null; // Sea lista ficou vazia, tail tambem precisa ser atualizado
 		}
-		size-- // Decrementando o contador de nós 
+		size--; // Decrementando o contador de nós 
 		removeNode.setNext(null); // Evita referencias indesejadas
 
 		return removeNode; // retorna o nó removido
@@ -109,7 +109,7 @@ public class DLinkedList {
 			head = null; // Se a lista ficou vazia, head tambem precisa ser atualizado
 		}
 
-		size-- // Decrementando o contador de nós
+		size--;// Decrementando o contador de nós
 		removeNode.setLeft(null); // Evita referencias indesejadas
 
 		return removeNode; // Retorna o nó removido
@@ -147,7 +147,7 @@ public class DLinkedList {
 			current.getNext().setLeft(current.getLeft());
 		}
 
-		size-- // Decrementando o contador de nós
+		size--; // Decrementando o contador de nós
 		current.setNext(null); 
 		current.setLeft(null); // removo referencias desnecessarias
 
