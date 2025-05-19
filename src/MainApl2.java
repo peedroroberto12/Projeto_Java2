@@ -20,6 +20,10 @@
 
 // TODO: Listar todas as referências consultadas para solucionar a atividade.
 
+//https://www.geeksforgeeks.org/
+//https://www.devmedia.com.br/string-em-java-entendendo-e-utilizando-essa-classe/25503
+//https://stackoverflow.com/questions
+
 import apl2.DLinkedList;
 import apl2.LinkedListOriginal;
 import apl2.Node;
