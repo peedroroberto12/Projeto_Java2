@@ -5,6 +5,15 @@
 
 // TODO: Colocar a identificação dos(as) integrantes aqui.
 
+// Nome: Pedro Roberto Fernandes Noronha
+// RA: 10443434
+
+// Nome: Arthur Danta Gonzalez Felix
+// RA: 10419721
+
+// Nome: Gustavo Kenzo Nakazato Sleiman
+// RA: 104089988
+
 package apl2;
 
 public class Operation {
@@ -20,6 +29,7 @@ public class Operation {
 	 */
 
 	public static DLinkedList map(final LinkedListOriginal original) {
+		// mapeia os dados da lista original para uma nova lista do tipo DLinkedList
         DLinkedList resposta = new DLinkedList();
 
         NodeOriginal atual = original.getHead();
@@ -39,7 +49,6 @@ public class Operation {
                 nota = 99.9f;
             }
 
-            // Adiciona o nó na lista duplamente encadeada passando os dados, não o Node
             resposta.append(novoid, nome, nota);
 
             atual = atual.getNext();
@@ -58,13 +67,16 @@ public class Operation {
 	 * @return Uma nova {@code DLinkedList} que contém a coleção de dados ({@code data}) filtrada com nós que possuem apenas pessoas com notas válidas.
 	 */
 	public static DLinkedList filterRemoveNonGraded(final DLinkedList data) {
+
+		// filtra os nós que possuem notas válidas
+		// e retorna uma nova lista do tipo DLinkedList
+
         DLinkedList resposta = new DLinkedList();
 
         Node atual = data.getHead();
         while (atual != null) {
 
             if (atual.getNota() != 99.9f) {
-                // Adiciona passando os dados, não o Node
                 resposta.append(atual.getId(), atual.getNome(), atual.getNota());
             }
             atual = atual.getNext();
@@ -84,13 +96,15 @@ public class Operation {
 	 * @return Uma nova {@code DLinkedList} que contém a coleção de dados ({@code data}) filtrada com nós que possuem apenas pessoas com notas inválidas.
 	 */
 	public static DLinkedList filterRemoveGraded(final DLinkedList data) {
+
+		// filtra os nós que possuem notas inválidas
+		// e retorna uma nova lista do tipo DLinkedList
         
         DLinkedList resposta = new DLinkedList();
         Node atual = data.getHead();
         while (atual != null) {
 
             if (atual.getNota() == 99.9f) {
-                // Adiciona passando os dados, não o Node
                 resposta.append(atual.getId(), atual.getNome(), atual.getNota());
             }
             atual = atual.getNext();
@@ -111,6 +125,10 @@ public class Operation {
 	 * @return Uma nova {@code DLinkedList} que contém a coleção de dados ({@code data}) filtrada somente com pessoas com notas maiores do que {@code average}.
 	 */
 	public static DLinkedList filterRemoveBelowAverage(final DLinkedList data, float average) {
+
+		// filtra os nós que possuem notas acima da média
+		// e retorna uma nova lista do tipo DLinkedList
+
         DLinkedList resposta = new DLinkedList();
 
         Node atual = data.getHead();
@@ -138,7 +156,8 @@ public class Operation {
 
 	 
 	public static float reduce(final DLinkedList data) {
-		// TODO: Implementar o método e remover o lançamento de exceção abaixo.
+		// soma as notas dos nós da lista e divide pelo número de nós
+		// para calcular a média
         float soma = 0;
 		Node atual = data.getHead();
 		while (atual != null) {
@@ -161,7 +180,12 @@ public class Operation {
 	 * @param data Base de dados mapeada para o formato {@code DLinkedList} (via operação {@code map()}). 
 	 * @return {@code String} com a coleção de dados separada por ponto-e-vírgula (dados de cada pessoa) e quebras de linha (cada pessoa).
 	 */
+
+
 	public static String mapToString(final DLinkedList data) {
+		//cria uma string vazia para armazenar o resultado e percorre a lista
+		//duplamente encadeada, concatenando os dados de cada nó na string
+
         String resultado = "";
         Node atual = data.getHead();
         while (atual != null) {

@@ -2,6 +2,15 @@
 
 // TODO: Colocar a identificação dos(as) integrantes aqui.
 
+// Nome: Pedro Roberto Fernandes Noronha
+// RA: 10443434
+
+// Nome: Arthur Danta Gonzalez Felix
+// RA: 10419721
+
+// Nome: Gustavo Kenzo Nakazato Sleiman
+// RA: 104089988
+
 package apl2;
 
 // -- A classe DLinkedList (que pertence ao pacote apl2) deve implementar uma

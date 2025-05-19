@@ -10,6 +10,15 @@ package apl2;
 // -- A classe deve sobrescrever (override) o método public String toString()
 // {...}, retornando uma string com os valores dos atributos da classe.
 
+// Nome: Pedro Roberto Fernandes Noronha
+// RA: 10443434
+
+// Nome: Arthur Danta Gonzalez Felix
+// RA: 10419721
+
+// Nome: Gustavo Kenzo Nakazato Sleiman
+// RA: 104089988
+
 public class Node {
 
     private String id;
@@ -84,7 +93,7 @@ public class Node {
     // Sobrescrevendo o método toString
     @Override
     public String toString() {
-        return (left != null ? left.getId() : "null") + " <- " + id + "; " + nome + "; " + nota + " -> " + (next != null ? next.getId() : "null");
+        return (left != null ? left.getId() : "null") + " <- " + "("+ id + "; " + nome + "; " + nota + ")" + "-> " + (next != null ? next.getId() : "null");
             
     }
 }

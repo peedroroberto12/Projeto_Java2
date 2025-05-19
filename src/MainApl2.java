@@ -5,7 +5,18 @@
 //*************************** ATENÇÃO! ****************************
 // arquivo: src/MainApl2.java
 
-// TODO: Colocar a identificação dos(as) integrantes aqui.
+// TODO: Colocar a identificação dos(as) integrantes aqui:
+
+// Nome: Pedro Roberto Fernandes Noronha
+// RA: 10443434
+
+// Nome: Arthur Danta Gonzalez Felix
+// RA: 10419721
+
+// Nome: Gustavo Kenzo Nakazato Sleiman
+// RA: 104089988
+
+
 
 // TODO: Listar todas as referências consultadas para solucionar a atividade.
 
@@ -18,9 +29,11 @@ import apl2.Data;
 public class MainApl2 {
 
     public static void main(String[] args) {
-        LinkedListOriginal list = new LinkedListOriginal();
 
-        // TODO: Carregar o conteúdo do arquivo "dados.txt" e adicionar cada linha como um nó na LinkedListOriginal list.
+        //carregar o arquivo dados.txt, verifica erro, pega a string e reparte em linhas, 
+        //cada linha repartida em partes, coleta as as partes e coloca na lista original
+
+        LinkedListOriginal list = new LinkedListOriginal();
         try {
             String conteudo = Data.loadTextFileToString("dados.txt");
             String[] linhas = conteudo.split("\\r?\\n|\\r");
@@ -73,9 +86,9 @@ public class MainApl2 {
         String contents = Operation.mapToString(fixedList);
         System.out.println(">>>>>>>>>> Lista mapeada para uma única string >>>>>>>>>>");
         System.out.println(contents);
-        System.out.println("<<<<<<<<<< Lista mapeada para uma única string <<<<<<<<<<\n");
+        System.out.println("<<<<<<<<<< Lista mapeada para uma única string <<<<<<<<<<\n");  
 
-        // TODO: Salvar o conteúdo da String contents em um arquivo chamado "dados.csv".
+        // Salvar a string em um arquivo CSV
         try {
             Data.saveStringToTextFile("dados.csv", contents);
         } catch (Exception e) {
